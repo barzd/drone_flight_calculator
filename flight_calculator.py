@@ -8,18 +8,19 @@ def calculate_flight_time(weight_grams):
         float: The active flight time in minutes, calculated as 180 - 0.1 * weight_grams,
         with negative results clamped to 0.0.
 
+ 
     """
     # Accept: kept the suggested formula.
     # Edit: adjusted the return so it never goes below zero.
-    # Reject: skipped the earlier idea that skipped the negative check and overcomplicated the logic.
+    
     if weight_grams < 0:
         raise ValueError("weight_grams must be non-negative.")
 
     flight_time = 180.0 - 0.1 * weight_grams
     return max(flight_time, 0.0)
 
-    
-
+     
+ 
 
 def flight_time_table(max_weight_grams, step_grams):
     """Generate a table of payload weights and their corresponding flight times.
@@ -35,7 +36,7 @@ def flight_time_table(max_weight_grams, step_grams):
     """
     # Accept: kept the loop condition.
     # Edit: changed the loop to handle float steps and include the final value.
-    # Reject: skipped the range() version because it broke on fractional increments.
+    
     if step_grams <= 0:
         raise ValueError("step_grams must be greater than 0.")
 
